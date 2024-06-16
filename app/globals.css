@@ -31,3 +31,67 @@ body {
     text-wrap: balance;
   }
 }
+.App {
+  text-align: center;
+  font-family: Arial, sans-serif;
+}
+
+.menu,
+.order {
+  display: inline-block;
+  width: 45%;
+  vertical-align: top;
+  margin: 20px;
+}
+
+.menu-item,
+.order-item {
+  border: 1px solid #ccc;
+  padding: 10px;
+  margin: 10px;
+  text-align: left;
+}
+/* styles.css */
+@media print {
+  @page {
+    size: A6;
+    margin: 0;
+  }
+
+  body {
+    width: 105mm;
+    height: 148mm;
+    margin: 0;
+    padding: 10mm;
+    box-sizing: border-box;
+  }
+
+  .order {
+    font-size: 12px; /* Adjust font size for readability on small paper */
+  }
+
+  ul {
+    padding-left: 0;
+    list-style-type: none;
+  }
+
+  li {
+    margin-bottom: 5mm; /* Adjust spacing between items */
+  }
+
+  h3 {
+    font-size: 14px;
+    margin-top: 10mm;
+  }
+
+  .footer {
+    text-align: center;
+    margin-top: 10mm;
+    font-size: 12px;
+    font-weight: bold;
+  }
+
+  button {
+    display: none; /* Hide buttons during print */
+  }
+}
