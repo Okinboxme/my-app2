@@ -64,6 +64,7 @@ const App: React.FC = () => {
         ))}
       </div>
       <div className="order">
+        {' '}
         <h2 className="text-lg font-bold text-black">Order</h2>
         <Order
           setOrder={setOrder}
