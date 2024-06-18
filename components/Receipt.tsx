@@ -96,7 +96,7 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
       </table>
       
   
-      <div className="footer">Ogbik Technologies</div>
+      <div className="footer">Powered by Ogbik Technologies</div>
     </div>
   );
 };
