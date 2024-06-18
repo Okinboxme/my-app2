@@ -59,14 +59,14 @@ const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
 <table className="receipt-table">
   <thead>
     <tr>
-      <th colspan="5"></th>
+      <th colSpan="5"></th>
       <th>Sub-Total</th>
       <th>Tax</th>
     </tr>
   </thead>
   <tbody>
     <tr>
-      <td colspan="5"></td>
+      <td colSpan="5"></td>
       <td>KSH 50.00</td>  <td>KSH 8.00 (16%)</td>  </tr>
   </tbody>
 </table>
