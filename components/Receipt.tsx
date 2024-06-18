@@ -32,26 +32,26 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
   const totalWithTax = total + taxAmount;
 
   return (
-    <div className="receipt">
+    <div className="receipt br">
       <h1>Ogbik Technologies</h1>
       <div className="header">
         <div>
 
-          <span>{seller.name}</span><br></br>
-          < span>{seller.address}</ span><br></br>
-          < span>VAT: {seller.vatNumber}</ span>
+          <span>{seller.name}</span>
+          <p>{seller.address}</p>
+          <p>VAT: {seller.vatNumber}</p>
         </div>
         {buyer && (
           <div>
             <strong>Buyer:</strong><br></br>
-            < span>{buyer.name}</ span><br></br>
-            < span>{buyer.address}</ span>
+            <p>{buyer.name}</p><br></br>
+            <p>{buyer.address}</p>
           </div>
         )}
       </div>
       <div className="details">
-        < span><strong>Receipt Number:</strong> {receiptNumber}</ span>
-        < span><strong>Date:</strong> {issueDate}</ span>
+        <p><strong>Receipt Number:</strong> {receiptNumber}</p>
+        <p><strong>Date:</strong> {issueDate}</p>
       </div>
       <ul className="receipt-list">
         {order.map((item) => (
