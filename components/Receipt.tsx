@@ -33,11 +33,11 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
 
   return (
     <div className="receipt br">
-         <strong>Seller:</strong>
+        
          <h1>Ogbik Technologies</h1>
       <div className="header">
         <div>
-
+        <strong>Seller:</strong>
           <span>{seller.name}</span>
           <p>{seller.address}</p>
           <p>VAT: {seller.vatNumber}</p>
