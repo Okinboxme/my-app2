@@ -73,9 +73,15 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
           </li>
         ))}
       </ul>
-      <h3>Total: ${total.toFixed(2)}</h3>
-      <h3>Tax ({(taxRate).toFixed(2)}%): ${taxAmount.toFixed(2)}</h3>
-      <h3>Total with Tax: ${totalWithTax.toFixed(2)}</h3>
+      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+        <span></span>
+        <span></span>
+        <span></span>
+        <span> <strong>Total: ${total.toFixed(2)}</strong></span>
+      </div>
+
+      <strong>Tax ({(taxRate).toFixed(2)}%): ${taxAmount.toFixed(2)}</strong>
+      <strong>Total with Tax: ${totalWithTax.toFixed(2)}</strong>
       <div className="footer">Ogbik Technologies</div>
     </div>
   );
