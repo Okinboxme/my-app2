@@ -33,23 +33,26 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
 
   return (
     <div className="receipt br text-xs">
+         <table className="receipt-table">
+      
+          <tr>
+            <td style={{ textAlign: 'center' }}>{seller.name}</td>
+           
+          </tr>
+          <tr>
+            <td style={{ textAlign: 'center' }}>{seller.address}</td>
+           
+          </tr>
+          <tr>
+            <td style={{ textAlign: 'center' }}>{seller.vatNumber}</td>
+           
+          </tr>
+       
+        </table>
+         
+     
         
-         <h1>Ogbik Technologies</h1>
-      <div className="header">
-        <div>
-        <strong>Seller:</strong>
-          <p>{seller.name}</p>
-          <p>{seller.address}</p>
-          <p>VAT: {seller.vatNumber}</p>
-        </div>
-        {buyer && (
-          <div>
-            <strong>Buyer:</strong>
-            <p>{buyer.name}</p>
-            <p>{buyer.address}</p>
-          </div>
-        )}
-      </div>
+     
       <div className="details">
         <p><strong>Receipt Number:</strong> {receiptNumber}</p>
         <p><strong>Date:</strong> {issueDate}</p>
