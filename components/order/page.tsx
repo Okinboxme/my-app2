@@ -77,7 +77,7 @@ const Order: React.FC<OrderProps> = ({ order, setOrder, removeFromOrder }) => {
             ))}
           </ul>
           <h3>Total: ${total}</h3>
-          <button className="bg" disabled={printing} onClick={handlePrint}>
+          <button className="button" disabled={printing} onClick={handlePrint}>
             {printing ? 'Printing...' : 'Print Receipt'}
           </button>
           <div id="receipt" style={{ display: 'none' }}>
