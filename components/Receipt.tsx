@@ -14,17 +14,20 @@ interface ReceiptProps {
 const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
   return (
     <div>
-      
-     
+      <h1>Ogbik Technologies</h1>
       <ul>
         {order.map((item) => (
           <li key={item.id}>
-            {item.name} - ${item.price} x {item.quantity} = $
-            {item.price * item.quantity}
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+              <span>{item.quantity}</span>
+              <span>{item.name}</span>
+              <span>${item.price.toFixed(2)}</span>
+              <span>${(item.price * item.quantity).toFixed(2)}</span>
+            </div>
           </li>
         ))}
       </ul>
-      <h3>Total: ${total}</h3>
+      <h3>Total: ${total.toFixed(2)}</h3>
       <div className="footer">Ogbik Technologies</div>
     </div>
   );
