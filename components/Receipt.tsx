@@ -54,6 +54,33 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
         <p><strong>Receipt Number:</strong> {receiptNumber}</p>
         <p><strong>Date:</strong> {issueDate}</p>
       </div>
+
+      <table className="receipt-table">
+        <thead>
+          <tr>
+            <th>Qty</th>
+            <th>Description</th>
+            <th>Unit Price</th>
+            <th>Total</th>
+          </tr>
+        </thead>
+        <tbody>
+          {order.map((item) => (
+            <tr key={item.id} className="receipt-item">
+              <td>{item.quantity}</td>
+              <td>{item.name}</td>
+              <td>${item.price.toFixed(2)}</td>
+              <td>${(item.price * item.quantity).toFixed(2)}</td>
+            </tr>
+          ))}
+        </tbody>
+        <tfoot>
+          <tr>
+            <td colSpan={3} style={{ textAlign: 'right' }}>Sub-Total:</td>
+            <td>${total.toFixed(2)}</td>
+          </tr>
+        </tfoot>
+      </table>
       <ul className="receipt-list br">
         {order.map((item) => (
           <p key={item.id} className="receipt-item">
@@ -81,8 +108,8 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
         <span> <strong>Total: ${total.toFixed(2)}</strong></span>
       </p>
 
-      <strong>Tax ({(taxRate).toFixed(2)}%): ${taxAmount.toFixed(2)}</strong>
-      <strong>Total with Tax: ${totalWithTax.toFixed(2)}</strong>
+     <p> <strong>Tax ({(taxRate).toFixed(2)}%): ${taxAmount.toFixed(2)}</strong></p>
+     <p><strong>Total with Tax: ${totalWithTax.toFixed(2)}</strong></p>
       <div className="footer">Ogbik Technologies</div>
     </div>
   );
