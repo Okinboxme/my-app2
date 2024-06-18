@@ -38,7 +38,7 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
       <div className="header">
         <div>
         <strong>Seller:</strong>
-          <span>{seller.name}</span>
+          <p>{seller.name}</p>
           <p>{seller.address}</p>
           <p>VAT: {seller.vatNumber}</p>
         </div>
@@ -59,12 +59,12 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
           <li key={item.id} className="receipt-item br">
 
 
-            <div className="br" style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <p  style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span>{item.quantity}</span>
               <span>{item.name}</span>
               <span>${item.price.toFixed(2)}</span>
               <span>${(item.price * item.quantity).toFixed(2)}</span>
-            </div>
+            </p>
 
 
 
@@ -74,12 +74,12 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
           </li>
         ))}
       </ul>
-      <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+      <p style={{ display: 'flex', justifyContent: 'space-between' }}>
         <span></span>
         <span></span>
         <span></span>
         <span> <strong>Total: ${total.toFixed(2)}</strong></span>
-      </div>
+      </p>
 
       <strong>Tax ({(taxRate).toFixed(2)}%): ${taxAmount.toFixed(2)}</strong>
       <strong>Total with Tax: ${totalWithTax.toFixed(2)}</strong>
