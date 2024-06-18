@@ -14,7 +14,7 @@ interface ReceiptProps {
 const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
   return (
     <div>
-      <div>Ogbik Technologies</div>
+      
      
       <ul>
         {order.map((item) => (
