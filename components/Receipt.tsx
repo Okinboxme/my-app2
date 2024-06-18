@@ -9,9 +9,10 @@ interface ReceiptProps {
     quantity: number;
   }[];
   taxRate: number;
+  
 }
 
-const Receipt: React.FC<ReceiptProps> = ({ order,total, taxRate }) => {
+const Receipt: React.FC<ReceiptProps> = ({ order, taxRate }) => {
   const total = order.reduce((sum, item) => sum + item.price * item.quantity, 0);
   const taxAmount = total * taxRate;
   const totalWithTax = total + taxAmount;
