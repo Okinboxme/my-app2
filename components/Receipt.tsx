@@ -54,9 +54,9 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
         <p><strong>Receipt Number:</strong> {receiptNumber}</p>
         <p><strong>Date:</strong> {issueDate}</p>
       </div>
-      <ul className="receipt-list">
+      <ul className="receipt-list br">
         {order.map((item) => (
-          <li key={item.id} className="receipt-item br">
+          <li key={item.id} className="receipt-item">
 
 
             <p  style={{ display: 'flex', justifyContent: 'space-between' }}>
