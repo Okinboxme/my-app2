@@ -13,7 +13,7 @@ interface ReceiptProps {
 
 const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
   return (
-    <Div>
+    <>
       <table className="receipt-table">
   <thead>
     <tr>
@@ -80,7 +80,7 @@ const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
       </ul>
       <h3>Total: ${total}</h3>
       <div className="footer">Ogbik Technologies</div>
-    </div>
+    </>
   );
 };
 
