@@ -69,7 +69,7 @@ const Order: React.FC<OrderProps> = ({ order, setOrder, removeFromOrder }) => {
       {order.length === 0 ? (
         <p className="text-lg text-black font-bold">No items in order</p>
       ) : (
-        <>
+        <div>
           <ul>
             {order.map((item) => (
               <li
@@ -103,7 +103,7 @@ const Order: React.FC<OrderProps> = ({ order, setOrder, removeFromOrder }) => {
             <Receipt order={order}  taxRate={taxRate}  receiptNumber={RE001} issueDate={} seller={seller} buyer={buyer}  />
           
           </div>
-        </>
+        </div>
       )}
     </div>
   );
