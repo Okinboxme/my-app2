@@ -26,9 +26,9 @@ interface ReceiptProps {
 }
 
 const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueDate, seller, buyer }) => {
-  const total = React.useMemo(() => 
+  const total = React.useMemo(() =>
     order.reduce((sum, item) => sum + item.price * item.quantity, 0), [order]);
-  const taxAmount = (total * taxRate)/100;
+  const taxAmount = (total * taxRate) / 100;
   const totalWithTax = total + taxAmount;
 
   return (
@@ -36,15 +36,15 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
       <h1>Ogbik Technologies</h1>
       <div className="header">
         <div>
-      
-          <span>{seller.name}</span>
-          < span>{seller.address}</ span>
+
+          <span>{seller.name}</span><br></br>
+          < span>{seller.address}</ span><br></br>
           < span>VAT: {seller.vatNumber}</ span>
         </div>
         {buyer && (
           <div>
-            <strong>Buyer:</strong>
-            < span>{buyer.name}</ span>
+            <strong>Buyer:</strong><br></br>
+            < span>{buyer.name}</ span><br></br>
             < span>{buyer.address}</ span>
           </div>
         )}
@@ -56,12 +56,20 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
       <ul className="receipt-list">
         {order.map((item) => (
           <li key={item.id} className="receipt-item">
-            <div className="item-details">
+
+
+            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span>{item.quantity}</span>
               <span>{item.name}</span>
               <span>${item.price.toFixed(2)}</span>
               <span>${(item.price * item.quantity).toFixed(2)}</span>
             </div>
+
+
+
+
+
+
           </li>
         ))}
       </ul>
