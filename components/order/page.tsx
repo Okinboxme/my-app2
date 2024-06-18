@@ -13,6 +13,24 @@ interface OrderProps {
   setOrder: React.Dispatch<React.SetStateAction<OrderItem[]>>;
   removeFromOrder: (item: OrderItem) => void;
 }
+const seller = {
+  name: 'Ogbik Technologies',
+  address: '123 Main St, Nairobi, Kenya',
+  vatNumber: '123456789',
+};
+
+// Example buyer information (optional)
+const buyer = {
+  name: 'John Doe',
+  address: '456 Elm St, Nairobi, Kenya',
+};
+
+// Example receipt details
+const receiptNumber = 'RECEIPT-001';
+const issueDate = new Date().toLocaleDateString('en-KE');
+
+// Example tax rate
+const taxRate = 16; // 16% tax rate (adjust as necessary)
 
 const Order: React.FC<OrderProps> = ({ order, setOrder, removeFromOrder }) => {
   const [printing, setPrinting] = useState(false);
@@ -82,7 +100,7 @@ const Order: React.FC<OrderProps> = ({ order, setOrder, removeFromOrder }) => {
           </button>
           <div id="receipt" style={{ display: 'none' }}>
         
-            <Receipt order={order}  taxRate={16}  receiptNumber={RE001} issueDate={} seller={shop1} buyer={}  />
+            <Receipt order={order}  taxRate={taxRate}  receiptNumber={RE001} issueDate={} seller={seller} buyer={buyer}  />
           
           </div>
         </>
