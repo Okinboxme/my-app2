@@ -77,39 +77,22 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
         <tfoot>
           <tr>
             <td colSpan={3} style={{ textAlign: 'right' }}>Sub-Total:</td>
-            <td>${total.toFixed(2)}</td>
+            <td><strong>${total.toFixed(2)}</strong></td>
           </tr>
+          <tr>
+            <td colSpan={3} style={{ textAlign: 'right' }}><strong>Tax ({(taxRate).toFixed(2)}%): </strong></td>
+            <td><strong>${taxAmount.toFixed(2)}</strong></td>
+          </tr>
+
+          <tr>
+            <td colSpan={3} style={{ textAlign: 'right' }}><strong>Total with Tax: </strong></td>
+            <td><strong>${totalWithTax.toFixed(2)}</strong></td>
+          </tr>
+         
         </tfoot>
       </table>
-      <ul className="receipt-list br">
-        {order.map((item) => (
-          <p key={item.id} className="receipt-item">
-
-
-            <p  style={{ display: 'flex', justifyContent: 'space-between' }}>
-              <span>{item.quantity}</span>
-              <span>{item.name}</span>
-              <span>${item.price.toFixed(2)}</span>
-              <span>${(item.price * item.quantity).toFixed(2)}</span>
-            </p>
-
-
-
-
-
-
-          </p>
-        ))}
-      </ul>
-      <p style={{ display: 'flex', justifyContent: 'space-between' }}>
-        <span></span>
-        <span></span>
-        <span></span>
-        <span> <strong>Total: ${total.toFixed(2)}</strong></span>
-      </p>
-
-     <p> <strong>Tax ({(taxRate).toFixed(2)}%): ${taxAmount.toFixed(2)}</strong></p>
-     <p><strong>Total with Tax: ${totalWithTax.toFixed(2)}</strong></p>
+      
+  
       <div className="footer">Ogbik Technologies</div>
     </div>
   );
