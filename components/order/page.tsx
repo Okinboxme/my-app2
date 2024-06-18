@@ -98,7 +98,7 @@ const Order: React.FC<OrderProps> = ({ order, setOrder, removeFromOrder }) => {
           <button className="button" disabled={printing} onClick={handlePrint}>
             {printing ? 'Printing...' : 'Print Receipt'}
           </button>
-          <div id="receipt" style={{ display: 'none' }}>
+          <div id="receipt" >
         
             <Receipt order={order}  taxRate={taxRate}  receiptNumber={receiptNumber} issueDate={issueDate} seller={seller} buyer={buyer}  />
           
