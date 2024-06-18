@@ -20,6 +20,7 @@
   
   .header {
     display: flex;
+    font-weight: bold;
     justify-content: space-between;
     margin-bottom: 10mm;
   }
