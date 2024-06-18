@@ -32,7 +32,7 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
   const totalWithTax = total + taxAmount;
 
   return (
-    <div className="receipt br text-sm">
+    <div className="receipt br text-xs">
         
          <h1>Ogbik Technologies</h1>
       <div className="header">
