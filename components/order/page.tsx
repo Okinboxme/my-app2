@@ -82,7 +82,7 @@ const Order: React.FC<OrderProps> = ({ order, setOrder, removeFromOrder }) => {
           </button>
           <div id="receipt" style={{ display: 'none' }}>
         
-            <Receipt order={order}  taxRate={16} />
+            <Receipt order={order}  taxRate={16}  receiptNumber={RE001} issueDate={} seller={shop1} buyer={}  />
           
           </div>
         </>

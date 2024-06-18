@@ -1,29 +1,62 @@
-// Receipt.tsx
+// components/Receipt.tsx
 import React from 'react';
 import './Receipt.css';
-interface ReceiptProps {
-  order: {
-    id: number;
-    name: string;
-    price: number;
-    quantity: number;
-  }[];
-  taxRate: number;
-  
+
+interface OrderItem {
+  id: number;
+  name: string;
+  price: number;
+  quantity: number;
 }
 
-const Receipt: React.FC<ReceiptProps> = ({ order, taxRate }) => {
-  const total = order.reduce((sum, item) => sum + item.price * item.quantity, 0);
-  const taxAmount = total * taxRate/100;
+interface ReceiptProps {
+  order: OrderItem[];
+  taxRate: number;
+  receiptNumber: string;
+  issueDate: string;
+  seller: {
+    name: string;
+    address: string;
+    vatNumber: string;
+  };
+  buyer?: {
+    name?: string;
+    address?: string;
+  };
+}
+
+const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueDate, seller, buyer }) => {
+  const total = React.useMemo(() => 
+    order.reduce((sum, item) => sum + item.price * item.quantity, 0), [order]);
+  const taxAmount = total * taxRate;
   const totalWithTax = total + taxAmount;
 
   return (
-    <div>
+    <div className="receipt">
       <h1>Ogbik Technologies</h1>
-      <ul>
+      <div className="header">
+        <div>
+          <strong>Seller:</strong>
+          <p>{seller.name}</p>
+          <p>{seller.address}</p>
+          <p>VAT: {seller.vatNumber}</p>
+        </div>
+        {buyer && (
+          <div>
+            <strong>Buyer:</strong>
+            <p>{buyer.name}</p>
+            <p>{buyer.address}</p>
+          </div>
+        )}
+      </div>
+      <div className="details">
+        <p><strong>Receipt Number:</strong> {receiptNumber}</p>
+        <p><strong>Date:</strong> {issueDate}</p>
+      </div>
+      <ul className="receipt-list">
         {order.map((item) => (
-          <li key={item.id}>
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+          <li key={item.id} className="receipt-item">
+            <div className="item-details">
               <span>{item.quantity}</span>
               <span>{item.name}</span>
               <span>${item.price.toFixed(2)}</span>
@@ -33,7 +66,7 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate }) => {
         ))}
       </ul>
       <h3>Total: ${total.toFixed(2)}</h3>
-      <h3>Tax ({(taxRate ).toFixed(2)}%): ${taxAmount.toFixed(2)}</h3>
+      <h3>Tax ({(taxRate * 100).toFixed(2)}%): ${taxAmount.toFixed(2)}</h3>
       <h3>Total with Tax: ${totalWithTax.toFixed(2)}</h3>
       <div className="footer">Ogbik Technologies</div>
     </div>
@@ -41,3 +74,7 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate }) => {
 };
 
 export default Receipt;
+
+// Add styles in your CSS file or in a <style> tag in your component
+
+import './Receipt.css';

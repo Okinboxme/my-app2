@@ -17,6 +17,16 @@
     margin-bottom: 10mm;
   }
   
+  .header {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 10mm;
+  }
+  
+  .details {
+    margin-bottom: 10mm;
+  }
+  
   .receipt-list {
     list-style: none;
     padding: 0;
