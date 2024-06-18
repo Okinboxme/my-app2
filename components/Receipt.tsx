@@ -28,7 +28,7 @@ interface ReceiptProps {
 const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueDate, seller, buyer }) => {
   const total = React.useMemo(() => 
     order.reduce((sum, item) => sum + item.price * item.quantity, 0), [order]);
-  const taxAmount = total * taxRate;
+  const taxAmount = (total * taxRate)/100;
   const totalWithTax = total + taxAmount;
 
   return (
@@ -36,22 +36,22 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
       <h1>Ogbik Technologies</h1>
       <div className="header">
         <div>
-          <strong>Seller:</strong>
-          <p>{seller.name}</p>
-          <p>{seller.address}</p>
-          <p>VAT: {seller.vatNumber}</p>
+      
+          <span>{seller.name}</span>
+          < span>{seller.address}</ span>
+          < span>VAT: {seller.vatNumber}</ span>
         </div>
         {buyer && (
           <div>
             <strong>Buyer:</strong>
-            <p>{buyer.name}</p>
-            <p>{buyer.address}</p>
+            < span>{buyer.name}</ span>
+            < span>{buyer.address}</ span>
           </div>
         )}
       </div>
       <div className="details">
-        <p><strong>Receipt Number:</strong> {receiptNumber}</p>
-        <p><strong>Date:</strong> {issueDate}</p>
+        < span><strong>Receipt Number:</strong> {receiptNumber}</ span>
+        < span><strong>Date:</strong> {issueDate}</ span>
       </div>
       <ul className="receipt-list">
         {order.map((item) => (
@@ -66,7 +66,7 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
         ))}
       </ul>
       <h3>Total: ${total.toFixed(2)}</h3>
-      <h3>Tax ({(taxRate * 100).toFixed(2)}%): ${taxAmount.toFixed(2)}</h3>
+      <h3>Tax ({(taxRate / 100).toFixed(2)}%): ${taxAmount.toFixed(2)}</h3>
       <h3>Total with Tax: ${totalWithTax.toFixed(2)}</h3>
       <div className="footer">Ogbik Technologies</div>
     </div>
@@ -74,7 +74,3 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
 };
 
 export default Receipt;
-
-// Add styles in your CSS file or in a <style> tag in your component
-
-import './Receipt.css';
