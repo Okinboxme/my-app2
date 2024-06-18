@@ -18,6 +18,14 @@ const App: React.FC = () => {
     { id: 1, name: 'Burger', price: 5 },
     { id: 2, name: 'Pizza', price: 8 },
     { id: 3, name: 'Salad', price: 4 },
+
+    { id: 11, name: 'Burger1', price: 5 },
+    { id: 21, name: 'Pizza1', price: 8 },
+    { id: 31, name: 'Salad1', price: 4 },
+
+    { id: 12, name: 'Burger2', price: 5 },
+    { id: 22, name: 'Pizza2', price: 8 },
+    { id: 32, name: 'Salad2', price: 4 },
   ]);
 
   const [order, setOrder] = useState<OrderItem[]>([]);
