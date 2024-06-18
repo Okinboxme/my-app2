@@ -1,6 +1,6 @@
 // Receipt.tsx
 import React from 'react';
-
+import './Receipt.css';
 interface ReceiptProps {
   order: {
     id: number;
@@ -8,10 +8,14 @@ interface ReceiptProps {
     price: number;
     quantity: number;
   }[];
-  total: number;
+  taxRate: number;
 }
 
-const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
+const Receipt: React.FC<ReceiptProps> = ({ order,total, taxRate }) => {
+  const total = order.reduce((sum, item) => sum + item.price * item.quantity, 0);
+  const taxAmount = total * taxRate;
+  const totalWithTax = total + taxAmount;
+
   return (
     <div>
       <h1>Ogbik Technologies</h1>
@@ -28,6 +32,8 @@ const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
         ))}
       </ul>
       <h3>Total: ${total.toFixed(2)}</h3>
+      <h3>Tax ({(taxRate * 100).toFixed(2)}%): ${taxAmount.toFixed(2)}</h3>
+      <h3>Total with Tax: ${totalWithTax.toFixed(2)}</h3>
       <div className="footer">Ogbik Technologies</div>
     </div>
   );

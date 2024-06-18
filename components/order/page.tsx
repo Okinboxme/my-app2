@@ -81,8 +81,8 @@ const Order: React.FC<OrderProps> = ({ order, setOrder, removeFromOrder }) => {
             {printing ? 'Printing...' : 'Print Receipt'}
           </button>
           <div id="receipt" style={{ display: 'none' }}>
-          <div>Ogbik Technologies</div>
-            <Receipt order={order} total={total} />
+        
+            <Receipt order={order} total={total} taxRate={16} />
           
           </div>
         </>
