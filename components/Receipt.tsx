@@ -33,7 +33,8 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
 
   return (
     <div className="receipt br">
-      <h1>Ogbik Technologies</h1>
+         <strong>Seller:</strong>
+         <h1>Ogbik Technologies</h1>
       <div className="header">
         <div>
 
@@ -43,8 +44,8 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
         </div>
         {buyer && (
           <div>
-            <strong>Buyer:</strong><br></br>
-            <p>{buyer.name}</p><br></br>
+            <strong>Buyer:</strong>
+            <p>{buyer.name}</p>
             <p>{buyer.address}</p>
           </div>
         )}
@@ -55,10 +56,10 @@ const Receipt: React.FC<ReceiptProps> = ({ order, taxRate, receiptNumber, issueD
       </div>
       <ul className="receipt-list">
         {order.map((item) => (
-          <li key={item.id} className="receipt-item">
+          <li key={item.id} className="receipt-item br">
 
 
-            <div style={{ display: 'flex', justifyContent: 'space-between' }}>
+            <div className="br" style={{ display: 'flex', justifyContent: 'space-between' }}>
               <span>{item.quantity}</span>
               <span>{item.name}</span>
               <span>${item.price.toFixed(2)}</span>
