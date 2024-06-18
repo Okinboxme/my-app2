@@ -14,7 +14,7 @@ interface ReceiptProps {
 const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
   return (
     <div>
-      <table class="receipt-table">
+      <table className="receipt-table">
   <thead>
     <tr>
       <th>Date & Time</th>
@@ -27,7 +27,7 @@ const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
   </tbody>
 </table>
 
-<table class="receipt-table">
+<table className="receipt-table">
   <thead>
     <tr>
       <th>Description</th>
@@ -56,7 +56,7 @@ const Receipt: React.FC<ReceiptProps> = ({ order, total }) => {
   </tbody>
 </table>
 
-<table class="receipt-table">
+<table className="receipt-table">
   <thead>
     <tr>
       <th colspan="5"></th>
